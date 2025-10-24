@@ -4,7 +4,7 @@
 import CardWrapper from '../card-wrapper'
 import FormError from '../form-error'
 import { FormSuccess } from '../form-success'
-import { useAuthState } from '@/hooks/useAuthState'
+import { useAuthState } from '@/hooks/use-auth-state'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
@@ -14,8 +14,10 @@ import { Button } from '../ui/button'
 import { SignupSchema } from '@/helpers/zod/signup-schema'
 import { signUp } from '@/lib/auth-client'
 import { generateUsername } from '@/helpers/auth/generate-username'
+import { useLocale } from 'next-intl'
 
 const SignUp = () => {
+    const locale = useLocale();
     const { error, success, loading, setLoading, setError, setSuccess, resetState } = useAuthState();
 
     const form = useForm<z.infer<typeof SignupSchema>>({
@@ -33,7 +35,7 @@ const SignUp = () => {
                 name: values.name,
                 email: values.email,
                 password: values.password,
-                callbackURL: '/'
+                callbackURL: `/${locale}/`
             }, {
                 onResponse: () => {
                     setLoading(false)
@@ -60,7 +62,7 @@ const SignUp = () => {
         <CardWrapper
             cardTitle='SignUp'
             cardDescription='Create an new account'
-            cardFooterLink='/signin'
+            cardFooterLink={`/${locale}/signin`}
             cardFooterDescription='Already have an account?'
             cardFooterLinkTitle='Signin'
         >

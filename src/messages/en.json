@@ -1,0 +1,203 @@
+{
+  "header": {
+    "logo": "Daikin",
+    "nav": {
+      "blog": "Blog",
+      "benefits": "Benefits",
+      "about": "About Us",
+      "contact": "Contact"
+    },
+    "auth": {
+      "dashboard": "Dashboard",
+      "signIn": "Sign In",
+      "signOut": "Sign Out",
+      "settings": "Settings"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Perfecting the Air",
+      "subtitle": "Discover Daikin's innovative HVAC solutions designed to create the perfect indoor environment for your home and business.",
+      "cta": {
+        "explore": "Explore Products",
+        "quote": "Get Quote"
+      }
+    },
+    "products": {
+      "title": "Featured Daikin Products",
+      "subtitle": "Discover our innovative HVAC solutions designed to perfect the air in your space"
+    },
+    "features": {
+      "title": "Why Choose Daikin?",
+      "subtitle": "Leading the industry with innovative technology and superior performance",
+      "efficiency": {
+        "title": "Energy Efficiency",
+        "description": "Industry-leading SEER ratings and innovative inverter technology for maximum energy savings."
+      },
+      "reliability": {
+        "title": "Reliability",
+        "description": "Proven performance with comprehensive warranties and exceptional build quality."
+      },
+      "smart": {
+        "title": "Smart Technology",
+        "description": "Advanced controls and IoT integration for intelligent comfort management."
+      }
+    },
+    "cta": {
+      "title": "Ready to Perfect Your Air?",
+      "subtitle": "Contact our experts today to find the perfect Daikin solution for your space.",
+      "consultation": "Get Free Consultation",
+      "dashboard": "Access Dashboard"
+    }
+  },
+  "products": {
+    "daikinFit": {
+      "name": "Daikin Fit Heat Pump",
+      "category": "Heat Pump Systems",
+      "description": "Compact design with superior efficiency and quiet operation. Perfect for residential applications with limited space.",
+      "features": ["19 SEER", "Quiet Operation", "Compact Design", "R-32 Refrigerant"],
+      "price": "Starting from $3,500"
+    },
+    "vrv": {
+      "name": "VRV X Series",
+      "category": "Commercial HVAC",
+      "description": "Variable Refrigerant Volume system offering ultimate flexibility and energy efficiency for commercial buildings.",
+      "features": ["Heat Recovery", "Individual Control", "Energy Efficient", "Smart Controls"],
+      "price": "Contact for pricing"
+    },
+    "thermostat": {
+      "name": "Daikin One+ Smart Thermostat",
+      "category": "Smart Controls",
+      "description": "Advanced smart thermostat with WiFi connectivity and intelligent comfort management.",
+      "features": ["WiFi Enabled", "Smart Scheduling", "Energy Reports", "Voice Control"],
+      "price": "$299"
+    },
+    "aurora": {
+      "name": "Daikin Aurora Series",
+      "category": "Ductless Systems",
+      "description": "Sleek wall-mounted units with advanced filtration and quiet operation for residential comfort.",
+      "features": ["Inverter Technology", "Multi-Zone", "Advanced Filtration", "Remote Control"],
+      "price": "Starting from $2,800"
+    },
+    "rebel": {
+      "name": "Daikin Rebel Series",
+      "category": "Packaged Units",
+      "description": "Robust packaged units designed for commercial applications with excellent reliability.",
+      "features": ["High Efficiency", "Durable Design", "Easy Maintenance", "Flexible Installation"],
+      "price": "Starting from $4,200"
+    }
+  },
+  "dashboard": {
+    "title": "Daikin Dashboard",
+    "welcome": "Welcome back, {name}!",
+    "subtitle": "Here's what's happening with your account today.",
+    "quickActions": "Quick Actions",
+    "recentActivity": "Recent Activity",
+    "sidebar": {
+      "userProfile": "User Profile",
+      "myOrders": "My Orders",
+      "myServices": "My Services",
+      "myBenefits": "My Benefits",
+      "settings": "Settings",
+      "signOut": "Sign Out",
+      "users": "Users",
+      "orders": "Orders",
+      "events": "Events",
+      "benefits": "Benefits"
+    },
+    "profile": {
+      "title": "User Profile",
+      "subtitle": "Manage your personal information and settings",
+      "personalInfo": "Personal Information",
+      "name": "Full Name",
+      "email": "Email Address",
+      "dateOfBirth": "Date of Birth",
+      "address": "Address Information",
+      "street": "Street",
+      "apartmentNumber": "Apartment Number",
+      "city": "City/Town/Village",
+      "postalCode": "Postal Code",
+      "postalCodePlaceholder": "XX-XXX",
+      "security": "Security Settings",
+      "twoFactor": "Two-Factor Authentication",
+      "twoFactorDescription": "Add an extra layer of security to your account",
+      "changePassword": "Change Password",
+      "changePasswordDescription": "Update your account password",
+      "changePasswordButton": "Change Password",
+      "saveChanges": "Save Changes",
+      "saving": "Saving...",
+      "successMessage": "Profile updated successfully",
+      "errorMessage": "Failed to update profile"
+    },
+    "users": {
+      "title": "User Management",
+      "addNewUser": "Add New User",
+      "allUsers": "All Users",
+      "editUser": "Edit User",
+      "deleteUser": "Delete User",
+      "areYouSure": "Are you sure?",
+      "deleteConfirmation": "This action cannot be undone. This will permanently delete the user account and all associated data.",
+      "name": "Name",
+      "email": "Email",
+      "role": "Role",
+      "emailVerified": "Email Verified",
+      "twoFactorEnabled": "2FA Enabled",
+      "daikinCoins": "Daikin Coins",
+      "createdAt": "Created At",
+      "actions": "Actions",
+      "addUserDescription": "Create a new user account. Default password will be 'P@ssw0rd'.",
+      "createUser": "Create User",
+      "creating": "Creating...",
+      "cancel": "Cancel",
+      "delete": "Delete User",
+      "deleting": "Deleting...",
+      "accountSettings": "Account Settings",
+      "userDetails": "User Details",
+      "resetPassword": "Reset Password to Default",
+      "resetPasswordConfirm": "Are you sure you want to reset this user's password to 'P@ssw0rd'?",
+      "passwordResetSuccess": "Password reset successfully",
+      "currentBalance": "Current Balance",
+      "addCoins": "Add Coins",
+      "addCoinsPrompt": "Enter amount of Daikin Coins to add:",
+      "saveChanges": "Save Changes",
+      "userUpdated": "User updated successfully",
+      "userCreated": "User created successfully",
+      "userDeleted": "User deleted successfully",
+      "cannotDeleteSelf": "Cannot delete your own account"
+    }
+  },
+  "footer": {
+    "company": "Perfecting the Air - The world's No.1 air conditioning company providing innovative HVAC solutions worldwide.",
+    "quickLinks": "Quick Links",
+    "products": "Products & Services",
+    "contact": "Contact Us",
+    "salesSupport": "Sales Support",
+    "techSupport": "Technical Support",
+    "email": "Email",
+    "headquarters": "Headquarters",
+    "copyright": "© 2025 Daikin Industries, Ltd. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "cookies": "Cookie Policy"
+  },
+  "signIn": {
+    "title": "Sign In",
+    "description": "Enter your details below to login to your account",
+    "email": "Email",
+    "emailPlaceholder": "Enter your email",
+    "password": "Password",
+    "passwordPlaceholder": "********",
+    "forgotPassword": "Forgot Password?",
+    "login": "Login",
+    "footerDescription": "Don't have an account?",
+    "footerLink": "Sign up",
+    "success": {
+      "loggedIn": "Logged in successfully.",
+      "otpSent": "OTP has been sent to your email"
+    },
+    "error": {
+      "loginFailed": "Email login failed. Please try again.",
+      "somethingWrong": "Something went wrong. Please try again."
+    }
+  }
+}

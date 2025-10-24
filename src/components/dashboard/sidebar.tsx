@@ -13,34 +13,33 @@ import {
   Calendar,
   Settings,
   LogOut,
+  Wrench,
 } from "lucide-react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
+import { useLocale, useTranslations } from "next-intl";
+import { redirect } from "next/navigation";
+import { useSession } from "@/lib/auth-client";
+import { useUserRole } from "@/hooks/use-user-role";
 
-interface SidebarProps {
-  user: {
-    id: string;
-    name: string;
-    email: string;
-    role: "USER" | "EMPLOYEE" | "ADMIN";
-    image?: string | null;
-  };
-}
-
-const roleNavItems = {
+const getRoleNavItems = (t: any) => ({
   USER: [
     {
-      title: "User Information",
+      title: t("sidebar.userProfile"),
       href: "/dashboard/profile",
       icon: User,
     },
     {
-      title: "My Orders",
+      title: t("sidebar.myOrders"),
       href: "/dashboard/orders",
       icon: ShoppingBag,
     },
     {
-      title: "My Benefits",
+      title: t("sidebar.myServices"),
+      href: "/dashboard/services",
+      icon: Wrench,
+    },
+    {
+      title: t("sidebar.myBenefits"),
       href: "/dashboard/benefits",
       icon: Gift,
     },
@@ -84,35 +83,44 @@ const roleNavItems = {
       icon: Gift,
     },
   ],
-};
+});
 
-export function Sidebar({ user }: SidebarProps) {
+export function Sidebar() {
+  const locale = useLocale();
   const pathname = usePathname();
-  const navItems = roleNavItems[user.role];
+  const t = useTranslations("dashboard");
+  const { data: session } = useSession();
+  const user = session?.user;
+  const role = useUserRole();
+  const navItems = getRoleNavItems(t)[role];
+
+  if(!session) {
+    redirect(`/${locale}/signin`);
+  }
 
   return (
-    <div className="fixed left-0 top-0 h-full w-64 border-r border-gray-200 bg-white shadow-sm">
+    <div className="hidden md:flex fixed left-0 top-16 h-[calc(100vh-4rem)] w-64 border-r border-gray-200 bg-white shadow-sm flex-col">
       {/* Header */}
-      <div className="border-b border-gray-200 p-6">
-        <h1 className="text-xl font-bold text-gray-900">Daikin Dashboard</h1>
-        <div className="mt-4 flex items-center space-x-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-100">
-            <User className="h-5 w-5 text-blue-600" />
+      <div className="border-b border-gray-200 p-4 lg:p-6">
+        <h1 className="text-lg lg:text-xl font-bold text-gray-900">{t("title")}</h1>
+        <div className="mt-3 lg:mt-4 flex items-center space-x-3">
+          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#F5F8FF] flex-shrink-0">
+            <User className="h-5 w-5 text-[#003D7A]" />
           </div>
           <div className="flex-1 min-w-0">
             <p className="text-sm font-medium text-gray-900 truncate">
-              {user.name}
+              {user!.name}
             </p>
-            <p className="text-xs text-gray-500 truncate">{user.email}</p>
-            <span className="inline-flex items-center px-2 py-0.5 mt-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-              {user.role}
+            <p className="text-xs text-gray-500 truncate">{user!.email}</p>
+            <span className="inline-flex items-center px-2 py-0.5 mt-1 rounded-full text-xs font-medium bg-[#F5F8FF] text-[#003D7A]">
+              {role}
             </span>
           </div>
         </div>
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 px-4 py-6 space-y-2">
+      <nav className="flex-1 px-3 lg:px-4 py-4 lg:py-6 space-y-1 lg:space-y-2 overflow-y-auto">
         {navItems.map((item) => {
           const Icon = item.icon;
           const isActive = pathname === item.href;
@@ -124,7 +132,7 @@ export function Sidebar({ user }: SidebarProps) {
               className={cn(
                 "flex items-center space-x-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
                 isActive
-                  ? "bg-blue-50 text-blue-700"
+                  ? "bg-[#F5F8FF] text-[#003D7A]"
                   : "text-gray-700 hover:bg-gray-100 hover:text-gray-900"
               )}
             >
@@ -136,13 +144,13 @@ export function Sidebar({ user }: SidebarProps) {
       </nav>
 
       {/* Footer */}
-      <div className="border-t border-gray-200 p-4 space-y-2">
+      <div className="border-t border-gray-200 p-3 lg:p-4 space-y-1 lg:space-y-2">
         <Link
           href="/dashboard/settings"
           className="flex items-center space-x-3 rounded-lg px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors"
         >
           <Settings className="h-5 w-5" />
-          <span>Settings</span>
+          <span>{t("sidebar.settings")}</span>
         </Link>
         <form action="/api/auth/signout" method="POST">
           <Button
@@ -151,7 +159,7 @@ export function Sidebar({ user }: SidebarProps) {
             className="w-full justify-start px-3 py-2 h-auto text-sm font-medium text-gray-700 hover:bg-gray-100 hover:text-gray-900"
           >
             <LogOut className="h-5 w-5 mr-3" />
-            Sign Out
+            {t("sidebar.signOut")}
           </Button>
         </form>
       </div>

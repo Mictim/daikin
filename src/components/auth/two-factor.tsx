@@ -16,10 +16,12 @@ import { FormSuccess } from "../form-success";
 
 import { authClient } from "@/lib/auth-client";
 import { twoFactorSchema } from "@/helpers/zod/two-factor-schema";
-import { useAuthState } from "@/hooks/useAuthState";
+import { useAuthState } from "@/hooks/use-auth-state";
 import { requestOTP } from "@/helpers/auth/request-otp";
+import { useLocale } from "next-intl";
 
 const TwoFactor: React.FC = () => {
+    const locale = useLocale();
     const router = useRouter();
     const {
         error,
@@ -71,7 +73,7 @@ const TwoFactor: React.FC = () => {
                     onResponse: () => setLoading(false),
                     onSuccess: () => {
                         setSuccess("OTP validated successfully.");
-                        router.replace("/");
+                        router.replace(`/${locale}/`);
                     },
                     onError: (ctx) => setError(ctx.error.message),
                 }
@@ -89,7 +91,7 @@ const TwoFactor: React.FC = () => {
             cardTitle="Two-Factor Authentication"
             cardDescription="Verify your identity with a one-time password."
             cardFooterDescription="Entered the wrong email?"
-            cardFooterLink="/login"
+            cardFooterLink={`/${locale}/login`}
             cardFooterLinkTitle="Login"
         >
             <Form {...form}>

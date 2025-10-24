@@ -12,10 +12,12 @@ import FormError from '../form-error'
 import { FormSuccess } from '../form-success'
 import { ResetPasswordSchema } from '@/helpers/zod/reset-password-schema'
 import { authClient } from '@/lib/auth-client'
-import { useAuthState } from '@/hooks/useAuthState'
+import { useAuthState } from '@/hooks/use-auth-state'
+import { useLocale } from 'next-intl'
 
 
 const ResetPassword = () => {
+    const locale = useLocale();
     const searchParams = useSearchParams()
     const token = searchParams.get('token')
     const router = useRouter()
@@ -47,7 +49,7 @@ const ResetPassword = () => {
                 },
                 onSuccess: () => {
                     setSuccess("New password has been created")
-                    router.replace('/signin')
+                    router.replace(`/${locale}/signin`)
                 },
                 onError: (ctx) => {
                     setError(`message: ${ctx.error.message}
@@ -66,7 +68,7 @@ const ResetPassword = () => {
         <CardWrapper
             cardTitle='Reset Password'
             cardDescription='create a new password'
-            cardFooterLink='/signin'
+            cardFooterLink={`/${locale}/signin`}
             cardFooterDescription='Remember your password?'
             cardFooterLinkTitle='Signin'
         >

@@ -1,0 +1,203 @@
+{
+  "header": {
+    "logo": "Daikin",
+    "nav": {
+      "blog": "Blog",
+      "benefits": "Korzyści",
+      "about": "O nas",
+      "contact": "Kontakt"
+    },
+    "auth": {
+      "dashboard": "Panel",
+      "signIn": "Zaloguj się",
+      "signOut": "Wyloguj się",
+      "settings": "Ustawienia"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Doskonalenie Powietrza",
+      "subtitle": "Odkryj innowacyjne rozwiązania HVAC firmy Daikin zaprojektowane do stworzenia idealnego środowiska wewnętrznego dla Twojego domu i firmy.",
+      "cta": {
+        "explore": "Poznaj produkty",
+        "quote": "Wycena"
+      }
+    },
+    "products": {
+      "title": "Polecane produkty Daikin",
+      "subtitle": "Odkryj nasze innowacyjne rozwiązania HVAC zaprojektowane do doskonalenia powietrza w Twojej przestrzeni"
+    },
+    "features": {
+      "title": "Dlaczego Daikin?",
+      "subtitle": "Liderujemy w branży dzięki innowacyjnej technologii i doskonałej wydajności",
+      "efficiency": {
+        "title": "Efektywność energetyczna",
+        "description": "Wiodące w branży oceny SEER i innowacyjna technologia inwertera dla maksymalnych oszczędności energii."
+      },
+      "reliability": {
+        "title": "Niezawodność",
+        "description": "Sprawdzona wydajność z kompleksowymi gwarancjami i wyjątkową jakością wykonania."
+      },
+      "smart": {
+        "title": "Inteligentna technologia",
+        "description": "Zaawansowane sterowanie i integracja IoT dla inteligentnego zarządzania komfortem."
+      }
+    },
+    "cta": {
+      "title": "Gotowy na doskonałe powietrze?",
+      "subtitle": "Skontaktuj się z naszymi ekspertami już dziś, aby znaleźć idealne rozwiązanie Daikin dla Twojej przestrzeni.",
+      "consultation": "Bezpłatna konsultacja",
+      "dashboard": "Panel dostępu"
+    }
+  },
+  "products": {
+    "daikinFit": {
+      "name": "Pompa ciepła Daikin Fit",
+      "category": "Systemy pomp ciepła",
+      "description": "Kompaktowa konstrukcja o doskonałej wydajności i cichej pracy. Idealna do zastosowań mieszkalnych z ograniczoną przestrzenią.",
+      "features": ["19 SEER", "Cicha praca", "Kompaktowa konstrukcja", "Czynnik chłodniczy R-32"],
+      "price": "Od 3500 zł"
+    },
+    "vrv": {
+      "name": "Seria VRV X",
+      "category": "Komercyjne HVAC",
+      "description": "System o zmiennym przepływie czynnika chłodniczego oferujący maksymalną elastyczność i efektywność energetyczną dla budynków komercyjnych.",
+      "features": ["Odzyskiwanie ciepła", "Sterowanie indywidualne", "Energooszczędny", "Inteligentne sterowanie"],
+      "price": "Skontaktuj się w sprawie ceny"
+    },
+    "thermostat": {
+      "name": "Inteligentny termostat Daikin One+",
+      "category": "Inteligentne sterowanie",
+      "description": "Zaawansowany inteligentny termostat z łącznością WiFi i inteligentnym zarządzaniem komfortem.",
+      "features": ["WiFi", "Inteligentne planowanie", "Raporty energii", "Sterowanie głosowe"],
+      "price": "299 zł"
+    },
+    "aurora": {
+      "name": "Seria Daikin Aurora",
+      "category": "Systemy bezkanałowe",
+      "description": "Eleganckie jednostki naścienne z zaawansowaną filtracją i cichą pracą dla komfortu mieszkalnego.",
+      "features": ["Technologia inwertera", "Wielostrefowy", "Zaawansowana filtracja", "Pilot"],
+      "price": "Od 2800 zł"
+    },
+    "rebel": {
+      "name": "Seria Daikin Rebel",
+      "category": "Jednostki packaged",
+      "description": "Wytrzymałe jednostki packaged zaprojektowane do zastosowań komercyjnych o doskonałej niezawodności.",
+      "features": ["Wysoka wydajność", "Trwała konstrukcja", "Łatwa konserwacja", "Elastyczna instalacja"],
+      "price": "Od 4200 zł"
+    }
+  },
+  "dashboard": {
+    "title": "Panel Daikin",
+    "welcome": "Witaj ponownie, {name}!",
+    "subtitle": "Oto co dzieje się z Twoim kontem dzisiaj.",
+    "quickActions": "Szybkie akcje",
+    "recentActivity": "Ostatnia aktywność",
+    "sidebar": {
+      "userProfile": "Profil użytkownika",
+      "myOrders": "Moje zamówienia",
+      "myServices": "Moje usługi",
+      "myBenefits": "Moje korzyści",
+      "settings": "Ustawienia",
+      "signOut": "Wyloguj się",
+      "users": "Użytkownicy",
+      "orders": "Zamówienia",
+      "events": "Wydarzenia",
+      "benefits": "Korzyści"
+    },
+    "profile": {
+      "title": "Profil użytkownika",
+      "subtitle": "Zarządzaj swoimi danymi osobowymi i ustawieniami",
+      "personalInfo": "Dane osobowe",
+      "name": "Imię i nazwisko",
+      "email": "Adres e-mail",
+      "dateOfBirth": "Data urodzenia",
+      "address": "Informacje adresowe",
+      "street": "Ulica",
+      "apartmentNumber": "Numer mieszkania",
+      "city": "Miasto/Miasteczko/Wieś",
+      "postalCode": "Kod pocztowy",
+      "postalCodePlaceholder": "XX-XXX",
+      "security": "Ustawienia bezpieczeństwa",
+      "twoFactor": "Uwierzytelnianie dwuskładnikowe",
+      "twoFactorDescription": "Dodaj dodatkową warstwę bezpieczeństwa do swojego konta",
+      "changePassword": "Zmień hasło",
+      "changePasswordDescription": "Zaktualizuj hasło do konta",
+      "changePasswordButton": "Zmień hasło",
+      "saveChanges": "Zapisz zmiany",
+      "saving": "Zapisywanie...",
+      "successMessage": "Profil został zaktualizowany pomyślnie",
+      "errorMessage": "Nie udało się zaktualizować profilu"
+    },
+    "users": {
+      "title": "Zarządzanie użytkownikami",
+      "addNewUser": "Dodaj nowego użytkownika",
+      "allUsers": "Wszyscy użytkownicy",
+      "editUser": "Edytuj użytkownika",
+      "deleteUser": "Usuń użytkownika",
+      "areYouSure": "Czy jesteś pewien?",
+      "deleteConfirmation": "Ta akcja jest nieodwracalna. Spowoduje trwałe usunięcie konta użytkownika i wszystkich powiązanych danych.",
+      "name": "Imię i nazwisko",
+      "email": "E-mail",
+      "role": "Rola",
+      "emailVerified": "E-mail zweryfikowany",
+      "twoFactorEnabled": "2FA włączone",
+      "daikinCoins": "Daikin Coins",
+      "createdAt": "Data utworzenia",
+      "actions": "Akcje",
+      "addUserDescription": "Utwórz nowe konto użytkownika. Domyślne hasło to 'P@ssw0rd'.",
+      "createUser": "Utwórz użytkownika",
+      "creating": "Tworzenie...",
+      "cancel": "Anuluj",
+      "delete": "Usuń użytkownika",
+      "deleting": "Usuwanie...",
+      "accountSettings": "Ustawienia konta",
+      "userDetails": "Dane użytkownika",
+      "resetPassword": "Zresetuj hasło do domyślnego",
+      "resetPasswordConfirm": "Czy na pewno chcesz zresetować hasło tego użytkownika na 'P@ssw0rd'?",
+      "passwordResetSuccess": "Hasło zostało zresetowane pomyślnie",
+      "currentBalance": "Aktualne saldo",
+      "addCoins": "Dodaj monety",
+      "addCoinsPrompt": "Wprowadź ilość Daikin Coins do dodania:",
+      "saveChanges": "Zapisz zmiany",
+      "userUpdated": "Użytkownik został zaktualizowany pomyślnie",
+      "userCreated": "Użytkownik został utworzony pomyślnie",
+      "userDeleted": "Użytkownik został usunięty pomyślnie",
+      "cannotDeleteSelf": "Nie możesz usunąć własnego konta"
+    }
+  },
+  "footer": {
+    "company": "Doskonalenie Powietrza - Światowa firma klimatyzacyjna nr 1 dostarczająca innowacyjne rozwiązania HVAC na całym świecie.",
+    "quickLinks": "Szybkie linki",
+    "products": "Produkty i usługi",
+    "contact": "Skontaktuj się z nami",
+    "salesSupport": "Wsparcie sprzedaży",
+    "techSupport": "Wsparcie techniczne",
+    "email": "E-mail",
+    "headquarters": "Siedziba główna",
+    "copyright": "© 2025 Daikin Industries, Ltd. Wszystkie prawa zastrzeżone.",
+    "privacy": "Polityka prywatności",
+    "terms": "Warunki użytkowania",
+    "cookies": "Polityka cookies"
+  },
+  "signIn": {
+    "title": "Zaloguj się",
+    "description": "Wprowadź swoje dane, aby zalogować się do swojego konta",
+    "email": "E-mail",
+    "emailPlaceholder": "Wprowadź swój e-mail",
+    "password": "Hasło",
+    "passwordPlaceholder": "********",
+    "forgotPassword": "Zapomniałeś hasła?",
+    "login": "Zaloguj się",
+    "footerDescription": "Nie masz konta?",
+    "footerLink": "Zarejestruj się",
+    "success": {
+      "loggedIn": "Zalogowano pomyślnie.",
+      "otpSent": "Kod OTP został wysłany na Twój e-mail"
+    },
+    "error": {
+      "loginFailed": "Logowanie nie powiodło się. Spróbuj ponownie.",
+      "somethingWrong": "Coś poszło nie tak. Spróbuj ponownie."
+    }
+  }
+}

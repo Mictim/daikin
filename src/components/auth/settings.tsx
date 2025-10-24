@@ -13,7 +13,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { FormSuccess } from '../form-success'
 import FormError from '../form-error'
-import { useAuthState } from '@/hooks/useAuthState'
+import { useAuthState } from '@/hooks/use-auth-state'
 import { Settings as UserSettings } from "lucide-react"
 
 

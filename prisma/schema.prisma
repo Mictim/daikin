@@ -15,23 +15,38 @@ enum Role {
 }
 
 model User {
-  id               String      @id @default(cuid())
+  id               String       @id @default(cuid())
   name             String
   email            String
-  emailVerified    Boolean     @default(false)
+  emailVerified    Boolean      @default(false)
   image            String?
-  createdAt        DateTime    @default(now())
-  updatedAt        DateTime    @updatedAt
-  twoFactorEnabled Boolean     @default(false)
+  createdAt        DateTime     @default(now())
+  updatedAt        DateTime     @updatedAt
+  twoFactorEnabled Boolean      @default(false)
   username         String?
   displayUsername  String?
-  role             Role        @default(USER)
+  role             Role         @default(USER)
+  userDetails      UserDetails?
   Session          Session[]
   Account          Account[]
   TwoFactor        TwoFactor[]
 
   @@unique([email])
   @@map("user")
+}
+
+model UserDetails {
+  id              String    @id @default(cuid())
+  dateOfBirth     DateTime?
+  street          String?
+  apartmentNumber String?
+  city            String?
+  postalCode      String?
+  daikinCoins     Int       @default(0)
+  userId          String    @unique
+  user            User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("user_details")
 }
 
 model Session {

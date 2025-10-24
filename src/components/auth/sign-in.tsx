@@ -5,13 +5,12 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 
 import CardWrapper from "../card-wrapper";
 import FormError from "../form-error";
 import { FormSuccess } from "../form-success";
 
-import { useAuthState } from "@/hooks/useAuthState";
+import { useAuthState } from "@/hooks/use-auth-state";
 import { signIn } from "@/lib/auth-client";
 
 import {
@@ -28,8 +27,12 @@ import { Button } from "../ui/button";
 // Import the schemas (adjusted to match likely export)
 import { requestOTP } from "@/helpers/auth/request-otp";
 import TraditionalSignInSchema from "@/helpers/zod/login-schema";
+import { useLocale, useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 const SignIn = () => {
+    const locale = useLocale();
+    const t = useTranslations('signIn');
     const router = useRouter();
     const {
         error,
@@ -75,26 +78,26 @@ const SignIn = () => {
                         if (ctx.data.twoFactorRedirect) {
                             const response = await requestOTP()
                             if (response?.data) {
-                                setSuccess("OTP has been sent to your email")
-                                router.push("/two-factor")
+                                setSuccess(t('success.otpSent'))
+                                router.push(`/${locale}/two-factor`)
                             } else if (response?.error) {
                                 setError(response.error.message)
                             }
                         } else {
-                            setSuccess("Logged in successfully.");
-                            router.replace("/");
+                            setSuccess(t('success.loggedIn'));
+                            router.replace(`/${locale}/`);
                         }
                     },
                     onError: (ctx) => {
                         setError(
-                            ctx.error.message || "Email login failed. Please try again."
+                            ctx.error.message || t('error.loginFailed')
                         );
                     },
                 }
             );
         } catch (err) {
             console.error(err);
-            setError("Something went wrong. Please try again.");
+            setError(t('error.somethingWrong'));
         } finally {
             setLoading(false);
         }
@@ -102,11 +105,13 @@ const SignIn = () => {
 
     return (
         <CardWrapper
-            cardTitle="Sign In"
-            cardDescription="Enter your details below to login to your account"
-            cardFooterDescription="Don't have an account?"
-            cardFooterLink="/signup"
-            cardFooterLinkTitle="Sign up"
+            cardTitle={t('title')}
+            cardDescription={t('description')}
+            cardFooterDescription={t('footerDescription')}
+            cardFooterLink={`/signup`}
+            cardFooterLinkTitle={t('footerLink')}
+            showCloseButton={true}
+            closeButtonLink="/"
         >
             <Form {...form}>
                 <form className="space-y-4" onSubmit={form.handleSubmit(onSubmit)}>
@@ -117,13 +122,13 @@ const SignIn = () => {
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>
-                                    {'Email'}
+                                    {t('email')}
                                 </FormLabel>
                                 <FormControl>
                                     <Input
                                         disabled={loading}
                                         type="text"
-                                        placeholder={"Enter your email"}
+                                        placeholder={t('emailPlaceholder')}
                                         {...field}
                                     />
                                 </FormControl>
@@ -138,12 +143,12 @@ const SignIn = () => {
                         name="password"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Password</FormLabel>
+                                <FormLabel>{t('password')}</FormLabel>
                                 <FormControl>
                                     <Input
                                         disabled={loading}
                                         type="password"
-                                        placeholder="********"
+                                        placeholder={t('passwordPlaceholder')}
                                         {...field}
                                     />
                                 </FormControl>
@@ -151,8 +156,9 @@ const SignIn = () => {
                                 <Link
                                     href="/forgot-password"
                                     className="text-xs underline ml-60"
+                                    locale={locale}
                                 >
-                                    Forgot Password?
+                                    {t('forgotPassword')}
                                 </Link>
                             </FormItem>
                         )}
@@ -163,7 +169,7 @@ const SignIn = () => {
 
                     {/* Submit Button */}
                     <Button disabled={loading} type="submit" className="w-full">
-                        {"Login"}
+                        {t('login')}
                     </Button>
                 </form>
             </Form>

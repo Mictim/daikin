@@ -5,6 +5,7 @@ import { ForgotPasswordSchema } from "@/helpers/zod/forgot-password-schema";
 import SignInSchema from "@/helpers/zod/login-schema";
 import { PasswordSchema, SignupSchema } from "@/helpers/zod/signup-schema";
 import { twoFactorSchema } from "@/helpers/zod/two-factor-schema";
+import { Role } from "@prisma/client";
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
 import {
@@ -13,7 +14,17 @@ import {
 import { validator } from "validation-better-auth";
 
 export const auth = betterAuth({
-  appName: "better_auth_nextjs",
+  user: {
+    additionalFields: {
+      role: {
+        type: "string",
+        required: true,
+        defaultValue: Role.USER,
+        input: false, // don't allow user to set role
+      }
+    }
+  },
+  appName: "daikin-coins",
   database: prismaAdapter(prisma, {
     provider: "postgresql",
   }),
@@ -23,7 +34,7 @@ export const auth = betterAuth({
     minPasswordLength: 8,
     maxPasswordLength: 20,
     requireEmailVerification: true,
-    sendResetPassword: async ({ user, url, token }, request) => {
+    sendResetPassword: async ({ user, url, token }: { user: any; url: string; token: string }, request?: any) => {
       await email.sendMail({
         from: "Lawhub <test@lawhub.pl>",
         to: user.email,
@@ -35,7 +46,7 @@ export const auth = betterAuth({
   emailVerification: {
     sendOnSignUp: true,
     autoSignInAfterVerification: true,
-    sendVerificationEmail: async ({ user, url }) => {
+    sendVerificationEmail: async ({ user, url }: { user: any; url: string }) => {
       await email.sendMail({
         from: "Lawhub <test@lawhub.pl>",
         to: user.email,
@@ -64,12 +75,6 @@ export const auth = betterAuth({
       skipVerificationOnEnable: true,
     }),
     validator([
-      // { path: "/sign-up/email", adapter: YupAdapter(SignupSchema) },
-      // { path: "/sign-in/email", adapter: YupAdapter(SignInSchema) },
-      // { path: "/two-factor/enable", adapter: YupAdapter(PasswordSchema) },
-      // { path: "/two-factor/disable", adapter: YupAdapter(PasswordSchema) },
-      // { path: "/two-factor/verify-otp", adapter: YupAdapter(twoFactorSchema) },
-      // { path: "/forgot-password", adapter: YupAdapter(ForgotPasswordSchema) },
       { path: "/sign-up/email", schema: SignupSchema },
       { path: "/sign-in/email", schema: SignInSchema },
       { path: "/two-factor/enable", schema: PasswordSchema },

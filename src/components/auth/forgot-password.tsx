@@ -8,12 +8,14 @@ import { Input } from '../ui/input'
 import { Button } from '../ui/button'
 import FormError from '../form-error'
 import { FormSuccess } from '../form-success'
-import { useAuthState } from '@/hooks/useAuthState'
+import { useAuthState } from '@/hooks/use-auth-state'
 import { authClient } from '@/lib/auth-client'
 import { ForgotPasswordSchema } from '@/helpers/zod/forgot-password-schema'
+import { useLocale } from 'next-intl'
 
 
 const ForgotPassword = () => {
+  const locale = useLocale();
   const { error, success, loading, setError, setSuccess, setLoading, resetState } = useAuthState()
 
   const form = useForm<z.infer<typeof ForgotPasswordSchema>>({
@@ -27,7 +29,7 @@ const ForgotPassword = () => {
     try {
       await authClient.forgetPassword({
         email: values.email,
-        redirectTo: "/reset-password"
+        redirectTo: `/${locale}/reset-password`
       }, {
         onResponse: () => {
           setLoading(false)
@@ -55,7 +57,7 @@ const ForgotPassword = () => {
       cardTitle='Forgot Password'
       cardDescription='Enter your email to send link to reset password'
       cardFooterDescription="Remember your password?"
-      cardFooterLink='/signin'
+      cardFooterLink={`${locale}/signin`}
       cardFooterLinkTitle='Signin'
     >
       <Form {...form}>

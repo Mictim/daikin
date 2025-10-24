@@ -11,6 +11,15 @@ export async function getUserWithRole(userId: string) {
       image: true,
       emailVerified: true,
       twoFactorEnabled: true,
+      userDetails: {
+        select: {
+          dateOfBirth: true,
+          street: true,
+          apartmentNumber: true,
+          city: true,
+          postalCode: true,
+        },
+      },
     },
   });
 }
