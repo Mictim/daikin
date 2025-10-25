@@ -17,3 +17,20 @@ export const email = nodemailer.createTransport({
     logger: true,
     debug: true
 });
+
+export const sendEmail = async ({
+    to,
+    subject,
+    html,
+}: {
+    to: string;
+    subject: string;
+    html: string;
+}) => {
+    return email.sendMail({
+        from: process.env.MAIL_USER,
+        to,
+        subject,
+        html,
+    });
+};

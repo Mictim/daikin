@@ -24,7 +24,7 @@ export default function DashboardLayout({
   );
 
   if (!session) {
-    redirect(`/signin`);
+    redirect(`/${locale}/signin`);
   }
 
   return (

@@ -89,13 +89,19 @@ export function Sidebar() {
   const locale = useLocale();
   const pathname = usePathname();
   const t = useTranslations("dashboard");
-  const { data: session } = useSession();
+  const { data: session, isPending } = useSession();
   const user = session?.user;
   const role = useUserRole();
   const navItems = getRoleNavItems(t)[role];
 
-  if(!session) {
-    redirect(`/${locale}/signin`);
+  // Don't render sidebar while session is loading
+  if (isPending) {
+    return null;
+  }
+
+  // If no session after loading, don't render (layout will handle redirect)
+  if (!session) {
+    return null;
   }
 
   return (
